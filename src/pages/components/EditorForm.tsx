@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -24,10 +25,14 @@ export default function EditorForm({
           keepMounted: true,
         }}
         sx={{
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: "50%" },
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: "40%" },
+          textAlign: "center",
         }}
       >
-        Hi
+        <Box component="main" sx={{ p: 1 }}>
+          {" "}
+          Hi
+        </Box>
       </SwipeableDrawer>
     </>
   );

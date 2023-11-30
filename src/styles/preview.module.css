@@ -1,0 +1,18 @@
+.section {
+  padding: 5rem;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.section h1 {
+  /* font-size: 5rem; */
+  font-weight: 700;
+}
+
+.section p {
+  margin: 3rem 0;
+}
