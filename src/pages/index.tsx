@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
 
 import Preview from "./components/Preview";
 import EditorForm from "./components/EditorForm";
@@ -24,6 +23,13 @@ export default function Home() {
     setIsEditorShown(!isEditorShown);
   };
 
+  const handleContentChange = (name: string, value: string) => {
+    setPreviewContent({
+      ...previewContent,
+      [name]: value,
+    });
+  };
+
   return (
     <>
       <Head>
@@ -38,11 +44,13 @@ export default function Home() {
       <Bar toggleMenu={handleMenuOpen} />
       <main>
         <Preview content={previewContent} />
-        <EditorForm
-          isBigScreen={isBigScreen}
-          isDrawerOpened={isEditorShown}
-          onClose={handleMenuOpen}
-        />
+          <EditorForm
+            isBigScreen={isBigScreen}
+            isDrawerOpened={isEditorShown}
+            onClose={handleMenuOpen}
+            content={previewContent}
+            onChange={handleContentChange}
+          />
       </main>
     </>
   );

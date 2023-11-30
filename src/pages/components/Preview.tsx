@@ -1,15 +1,10 @@
 import { Button, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import styles from "@/styles/preview.module.css";
-
-interface PreviewData {
-  title: string;
-  description: string;
-  btnVal: string;
-}
+import { ContentItem } from "@/interfaces/content.interface";
 
 interface Props {
-  content: PreviewData;
+  content: ContentItem;
 }
 
 export default function Preview({ content }: Props) {
