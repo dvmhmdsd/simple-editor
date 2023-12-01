@@ -23,7 +23,6 @@ export default function EditorForm({
   const {
     control,
     formState: { errors },
-    register,
   } = useForm<ContentItem>({
     defaultValues: {
       title: content?.title,
@@ -70,6 +69,7 @@ export default function EditorForm({
                   fullWidth
                   id="title"
                   label="Title"
+                  data-testid="titleInput"
                   onChange={(e) => {
                     field.onChange(e);
                     onChange("title", e.target.value);

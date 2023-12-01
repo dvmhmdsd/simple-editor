@@ -44,13 +44,13 @@ export default function Home() {
       <Bar toggleMenu={handleMenuOpen} />
       <main>
         <Preview content={previewContent} />
-          <EditorForm
-            isBigScreen={isBigScreen}
-            isDrawerOpened={isEditorShown}
-            onClose={handleMenuOpen}
-            content={previewContent}
-            onChange={handleContentChange}
-          />
+        <EditorForm
+          isBigScreen={isBigScreen}
+          isDrawerOpened={isEditorShown}
+          onClose={handleMenuOpen}
+          content={previewContent}
+          onChange={handleContentChange}
+        />
       </main>
     </>
   );
