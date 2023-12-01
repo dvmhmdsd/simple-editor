@@ -32,7 +32,6 @@ export default function EditorForm({
     },
     mode: "onChange",
   });
-  console.log(errors);
 
   return (
     <>
