@@ -2,7 +2,6 @@ import { ContentItem } from "@/interfaces/content.interface";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { Controller, useForm } from "react-hook-form";
-import FormField from "./FormField";
 import styles from "@/styles/form.module.css";
 import TextField from "@mui/material/TextField";
 

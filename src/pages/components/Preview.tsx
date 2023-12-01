@@ -23,10 +23,10 @@ export default function Preview({ content }: Props) {
           fontSize: { xs: "2rem", sm: "3rem", md: "5rem" },
         }}
       >
-        {content.title}
+        {content?.title}
       </Typography>
-      <Typography component="p">{content.description}</Typography>
-      <Button variant="contained">{content.btnVal}</Button>
+      <Typography component="p">{content?.description}</Typography>
+      <Button variant="contained">{content?.btnVal}</Button>
     </Box>
   );
 }
