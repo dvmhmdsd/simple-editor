@@ -25,9 +25,9 @@ export default function EditorForm({
     formState: { errors },
   } = useForm<ContentItem>({
     defaultValues: {
-      title: content.title,
-      description: content.description,
-      btnVal: content.btnVal,
+      title: content?.title,
+      description: content?.description,
+      btnVal: content?.btnVal,
     },
     mode: "onChange",
   });
@@ -64,7 +64,7 @@ export default function EditorForm({
               isMultiline={false}
               label="Title"
               onChange={onChange}
-              value={content.title}
+              value={content?.title}
             />
             {errors.title?.type === "required" && (
               <p role="alert" className={styles.errorText}>
@@ -81,7 +81,7 @@ export default function EditorForm({
               isMultiline={true}
               label="Description"
               onChange={onChange}
-              value={content.description}
+              value={content?.description}
             />
             {errors.description?.type === "required" && (
               <p role="alert" className={styles.errorText}>
@@ -98,7 +98,7 @@ export default function EditorForm({
               isMultiline={false}
               label="Button Value"
               onChange={onChange}
-              value={content.btnVal}
+              value={content?.btnVal}
             />
             {errors.btnVal?.type === "required" && (
               <p role="alert" className={styles.errorText}>
