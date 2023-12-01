@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 import { fireEvent, render, screen } from "@testing-library/react";
-import { ContentItem } from "src/interfaces/content.interface";
 import "@testing-library/jest-dom";
 import Home from "../src/pages/index";
 
