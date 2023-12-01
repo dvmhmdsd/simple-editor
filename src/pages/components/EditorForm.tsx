@@ -1,9 +1,10 @@
 import { ContentItem } from "@/interfaces/content.interface";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import FormField from "./FormField";
 import styles from "@/styles/form.module.css";
+import TextField from "@mui/material/TextField";
 
 interface Props {
   isDrawerOpened: boolean;
@@ -23,6 +24,7 @@ export default function EditorForm({
   const {
     control,
     formState: { errors },
+    register,
   } = useForm<ContentItem>({
     defaultValues: {
       title: content?.title,
@@ -31,6 +33,7 @@ export default function EditorForm({
     },
     mode: "onChange",
   });
+  console.log(errors);
 
   return (
     <>
@@ -57,14 +60,28 @@ export default function EditorForm({
           }}
         >
           <Box component="section" sx={{ p: 2 }}>
-            <FormField
-              control={control}
+            <Controller
               name="title"
+              control={control}
               rules={{ required: true }}
-              isMultiline={false}
-              label="Title"
-              onChange={onChange}
-              value={content?.title}
+              defaultValue=""
+              render={({ field: { ref, ...field } }) => (
+                <TextField
+                  {...field}
+                  inputRef={ref}
+                  fullWidth
+                  id="title"
+                  label="Title"
+                  onChange={(e) => {
+                    field.onChange(e);
+                    onChange("title", e.target.value);
+                  }}
+                  value={content.title}
+                  variant="outlined"
+                  multiline={false}
+                  error={!!errors.title}
+                />
+              )}
             />
             {errors.title?.type === "required" && (
               <p role="alert" className={styles.errorText}>
@@ -74,14 +91,28 @@ export default function EditorForm({
           </Box>
 
           <Box component="section" sx={{ p: 2 }}>
-            <FormField
-              control={control}
+            <Controller
               name="description"
+              control={control}
               rules={{ required: true }}
-              isMultiline={true}
-              label="Description"
-              onChange={onChange}
-              value={content?.description}
+              defaultValue=""
+              render={({ field: { ref, ...field } }) => (
+                <TextField
+                  {...field}
+                  inputRef={ref}
+                  fullWidth
+                  id="description"
+                  label="Description"
+                  onChange={(e) => {
+                    field.onChange(e);
+                    onChange("description", e.target.value);
+                  }}
+                  value={content.description}
+                  variant="outlined"
+                  multiline={true}
+                  error={!!errors.description}
+                />
+              )}
             />
             {errors.description?.type === "required" && (
               <p role="alert" className={styles.errorText}>
@@ -91,18 +122,32 @@ export default function EditorForm({
           </Box>
 
           <Box component="section" sx={{ p: 2 }}>
-            <FormField
-              control={control}
+            <Controller
               name="btnVal"
+              control={control}
               rules={{ required: true }}
-              isMultiline={false}
-              label="Button Value"
-              onChange={onChange}
-              value={content?.btnVal}
+              defaultValue=""
+              render={({ field: { ref, ...field } }) => (
+                <TextField
+                  {...field}
+                  inputRef={ref}
+                  fullWidth
+                  id="btnVal"
+                  label="Button Value"
+                  onChange={(e) => {
+                    field.onChange(e);
+                    onChange("btnVal", e.target.value);
+                  }}
+                  value={content.btnVal}
+                  variant="outlined"
+                  multiline={false}
+                  error={!!errors.btnVal}
+                />
+              )}
             />
             {errors.btnVal?.type === "required" && (
               <p role="alert" className={styles.errorText}>
-                Button value is required
+                Button Value is required
               </p>
             )}
           </Box>

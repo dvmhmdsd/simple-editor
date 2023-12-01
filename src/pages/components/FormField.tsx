@@ -8,24 +8,22 @@ interface AdditionalProps {
   label: string;
   onChange: (name: string, value: string) => void;
   value: string;
+  ref?: any;
 }
 
 type Props = AdditionalProps & UseControllerProps<ContentItem>;
 
 export default function FormField(props: Props) {
-  const { field } = useController(props);
   return (
     <Box>
       <TextField
         sx={{ width: "100%" }}
-        {...field}
-        id="outlined-basic"
+        id={props.label}
         label={props.label}
         variant="outlined"
         multiline={props.isMultiline}
         onChange={(e) => props.onChange(props.name, e.target.value)}
         value={props.value}
-        defaultValue={props.value}
       />
     </Box>
   );
