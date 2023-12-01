@@ -3,9 +3,9 @@
  */
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { ContentItem } from "src/interfaces/content.interface";
+import { ContentItem } from "@/interfaces/content.interface";
 import "@testing-library/jest-dom";
-import EditorForm from "../src/pages/components/EditorForm";
+import EditorForm from "@/pages/components/EditorForm";
 
 describe("Editor Form Component", () => {
   const defaultContent: ContentItem = {

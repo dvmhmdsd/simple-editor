@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 import { render } from "@testing-library/react";
-import Preview from "../src/pages/components/Preview";
-import { ContentItem } from "src/interfaces/content.interface";
+import Preview from "@/pages/components/Preview";
+import { ContentItem } from "@/interfaces/content.interface";
 import "@testing-library/jest-dom";
 
 describe("Preview Component", () => {

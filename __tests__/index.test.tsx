@@ -3,7 +3,7 @@
  */
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Home from "../src/pages/index";
+import Home from "@/pages/index";
 
 // Integration test
 describe("Home Page", () => {
